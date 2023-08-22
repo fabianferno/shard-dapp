@@ -1,12 +1,49 @@
 import Layout from "@/components/layout";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { useState, useRef } from "react";
+import { useState } from "react";
 import * as XLSX from "xlsx";
 import { ERC20Sender, ERC20 } from "../utils";
+import Papa from "papaparse";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function App() {
+  // State to store parsed data
+  const [parsedData, setParsedData] = useState([]);
+
+  //State to store table Column name
+  const [tableRows, setTableRows] = useState([]);
+
+  //State to store the values
+  const [values, setValues] = useState([]);
+
+  const changeHandler = (event) => {
+    // Passing file data (event.target.files[0]) to parse using Papa.parse
+    Papa.parse(event.target.files[0], {
+      header: true,
+      skipEmptyLines: true,
+      complete: function (results) {
+        const rowsArray = [];
+        const valuesArray = [];
+
+        // Iterating data to get column name and their values
+        results.data.map((d) => {
+          rowsArray.push(Object.keys(d));
+          valuesArray.push(Object.values(d));
+        });
+
+        // Parsed Data Response in array format
+        setParsedData(results.data);
+
+        // Filtered Column Names
+        setTableRows(rowsArray[0]);
+
+        // Filtered Values
+        setValues(valuesArray);
+      },
+    });
+  };
+
   return (
     <>
       <Head>
@@ -47,6 +84,66 @@ export default function App() {
           <div className="mt-4 flex md:ml-4 md:mt-0">
             <div className="mt-4 flex md:ml-4 md:mt-0">
               <ConnectButton />
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <label
+            className="block mb-2 text-sm font-medium bg-white text-gray-900"
+            htmlFor="large_size"
+          >
+            Large file input
+          </label>
+          <input
+            name="file"
+            accept=".csv"
+            onChange={changeHandler}
+            className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
+            type="file"
+          />
+
+          <div className="mt-8 flow-root">
+            <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+                <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+                  <table className="min-w-full divide-y divide-gray-300">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        {tableRows.map((rows, index) => {
+                          return (
+                            <th
+                              key={index}
+                              scope="col"
+                              className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                            >
+                              {rows}
+                            </th>
+                          );
+                        })}
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200 bg-white">
+                      {values.map((value, index) => {
+                        return (
+                          <tr key={index}>
+                            {value.map((val, i) => {
+                              return (
+                                <td
+                                  key={i}
+                                  className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6"
+                                >
+                                  {val}
+                                </td>
+                              );
+                            })}
+                          </tr>
+                        );
+                      })}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>
