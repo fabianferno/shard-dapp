@@ -17,17 +17,17 @@ export default function App() {
   //State to store the values
   const [values, setValues] = useState([]);
 
-  const changeHandler = (event) => {
+  const changeHandler = (event: any) => {
     // Passing file data (event.target.files[0]) to parse using Papa.parse
     Papa.parse(event.target.files[0], {
       header: true,
       skipEmptyLines: true,
-      complete: function (results) {
-        const rowsArray = [];
-        const valuesArray = [];
+      complete: function (results: any) {
+        const rowsArray: any = [];
+        const valuesArray: any = [];
 
         // Iterating data to get column name and their values
-        results.data.map((d) => {
+        results.data.map((d: any) => {
           rowsArray.push(Object.keys(d));
           valuesArray.push(Object.values(d));
         });
@@ -47,29 +47,29 @@ export default function App() {
   return (
     <>
       <Head>
-        <title>EMISSARY</title>
-        <meta name="title" content="EMISSARY" />
-        <meta name="description" content="EMISSARY" />
+        <title>Make Payments - SHARDS</title>
+        <meta name="title" content="SHARDS" />
+        <meta name="description" content="SHARDS" />
 
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://emissary.vercel.app/meta-image.jpg"
+          content="https://shards.vercel.app/meta-image.jpg"
         />
-        <meta property="og:title" content="EMISSARY" />
-        <meta property="og:description" content="EMISSARY" />
+        <meta property="og:title" content="SHARDS" />
+        <meta property="og:description" content="SHARDS" />
         <meta
           property="og:image"
-          content="https://emissary.vercel.app/meta-image.jpg"
+          content="https://shards.vercel.app/meta-image.jpg"
         />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://emissary.vercel.app/" />
-        <meta property="twitter:title" content="EMISSARY" />
-        <meta property="twitter:description" content="EMISSARY" />
+        <meta property="twitter:url" content="https://shards.vercel.app/" />
+        <meta property="twitter:title" content="SHARDS" />
+        <meta property="twitter:description" content="SHARDS" />
         <meta
           property="twitter:image"
-          content="https://emissary.vercel.app/meta-image.jpg"
+          content="https://shards.vercel.app/meta-image.jpg"
         />
       </Head>
 
@@ -124,10 +124,10 @@ export default function App() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200 bg-white">
-                      {values.map((value, index) => {
+                      {values.map((value: any, index: number) => {
                         return (
                           <tr key={index}>
-                            {value.map((val, i) => {
+                            {value.map((val: any, i: number) => {
                               return (
                                 <td
                                   key={i}

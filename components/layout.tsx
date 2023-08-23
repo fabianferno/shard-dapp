@@ -10,20 +10,32 @@ import {
   HomeIcon,
   UsersIcon,
   XMarkIcon,
+  BanknotesIcon,
+  QuestionMarkCircleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const navigation = [
-  { name: "Project Attestations", href: "/", icon: HomeIcon, current: true },
+  { name: "Home", href: "/", icon: HomeIcon, current: false },
   {
-    name: "Create Project",
-    href: "/create-project",
+    name: "How to Use",
+    href: "/how-to-use",
+    icon: QuestionMarkCircleIcon,
+    current: false,
+  },
+  {
+    name: "Make Payments",
+    href: "/make-payments",
+    icon: BanknotesIcon,
+    current: false,
+  },
+  {
+    name: "View Payments",
+    href: "/view-payments",
     icon: UsersIcon,
     current: false,
   },
-  { name: "Creator Dashboard", href: "#", icon: FolderIcon, current: false },
-  { name: "Emissary Score", href: "#", icon: CalendarIcon, current: false },
 ];
 
 function classNames(...classes: string[]) {
@@ -99,7 +111,7 @@ export default function Layout({ children }: Props) {
                       <Image
                         className="h-8 w-auto"
                         src="/logo.png"
-                        alt="EMISSARY"
+                        alt="SHARDS"
                       />
                     </div>
                     <nav className="flex flex-1 flex-col">
@@ -151,10 +163,10 @@ export default function Layout({ children }: Props) {
                 src="/logo.png"
                 width={343}
                 height={304}
-                alt="EMISSARY"
+                alt="SHARDS"
               />
               <span className="font-medium text-white text-2xl uppercase">
-                EMISSARY
+                Shard App
               </span>
             </div>
             <nav className="flex flex-1 flex-col">

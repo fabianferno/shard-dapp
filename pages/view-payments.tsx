@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useAccount } from "wagmi";
 import { useEffect, useState } from "react";
 import Layout from "@/components/layout";
+
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 const collections = [
