@@ -39,7 +39,7 @@ export default function HowToUse() {
       <div className="md:flex md:items-center md:justify-between">
         <div className="min-w-0 flex-1">
           <h2 className="mt-5 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-            Welcome to the Shards - User Guide
+            Welcome to the Xcel - User Guide
           </h2>
         </div>
       </div>

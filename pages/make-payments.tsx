@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ERC20Sender, ERC20 } from "../utils";
 import { useContractWrite } from "wagmi";
 import Papa from "papaparse";
+import { parseEther } from "viem";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function App() {
@@ -18,13 +19,14 @@ export default function App() {
 
   const {
     write: sendERC20,
-    isLoading,
-    isError,
-    isSuccess,
+    isLoading: transactionLoading,
+    isError: transactionError,
+    isSuccess: transactionSuccess,
   } = useContractWrite({
     address: ERC20Sender.address,
     abi: ERC20Sender.abi,
-    functionName: "sendERC20",
+    functionName: "sendPayment",
+    value: parseEther("0.05"),
   });
 
   const changeHandler = (event: any) => {
@@ -54,20 +56,64 @@ export default function App() {
     });
   };
 
+  const handleSend = () => {
+    let data = parsedData.map(
+      (d: any) =>
+        (d = {
+          receiver: d["Receiving Address"],
+          amount: d["Amount"],
+          destinationChain: d["Chain"],
+          paymentId: d["Token Symbol"],
+        })
+    );
+
+    const groupedData = parsedData.reduce((acc: any, curr: any) => {
+      const chain = curr["Chain"];
+      if (!acc[chain]) {
+        acc[chain] = [];
+      }
+      acc[chain].push({
+        receiver: curr["Receiving Address"],
+        amount: curr["Amount"],
+        paymentId: curr["Token Symbol"],
+      });
+      return acc;
+    }, {});
+
+    console.log(groupedData);
+
+    Object.keys(groupedData).map((chain) => {
+      const data = groupedData[chain];
+      const receivers = data.map((d: any) => d.receiver);
+      const amounts = data.map((d: any) => parseInt(d.amount));
+      const symbol = data[0].paymentId;
+
+      sendERC20({
+        args: [
+          receivers,
+          amounts,
+          chain,
+          0x8bcc2cb0291e00e5f6a7c9929d7c4d33bf552551,
+          symbol,
+        ],
+      });
+    });
+  };
+
   return (
     <>
       <Head>
-        <title>Make Payments - SHARDS</title>
-        <meta name="title" content="SHARDS" />
-        <meta name="description" content="SHARDS" />
+        <title>Make Payments - XCELS</title>
+        <meta name="title" content="XCELS" />
+        <meta name="description" content="XCELS" />
 
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
           content="https://shards.vercel.app/meta-image.jpg"
         />
-        <meta property="og:title" content="SHARDS" />
-        <meta property="og:description" content="SHARDS" />
+        <meta property="og:title" content="XCELS" />
+        <meta property="og:description" content="XCELS" />
         <meta
           property="og:image"
           content="https://shards.vercel.app/meta-image.jpg"
@@ -75,8 +121,8 @@ export default function App() {
 
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://shards.vercel.app/" />
-        <meta property="twitter:title" content="SHARDS" />
-        <meta property="twitter:description" content="SHARDS" />
+        <meta property="twitter:title" content="XCELS" />
+        <meta property="twitter:description" content="XCELS" />
         <meta
           property="twitter:image"
           content="https://shards.vercel.app/meta-image.jpg"
@@ -112,6 +158,12 @@ export default function App() {
             className="block w-full text-lg text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none"
             type="file"
           />
+          <button
+            onClick={handleSend}
+            className="mt-5 flex btn d-block bg-indigo-600 text-white rounded-lg btn-lg text-dark fw-bold btn-primary p-3"
+          >
+            Send ✅
+          </button>
 
           <div className="mt-8 flow-root">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">

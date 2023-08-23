@@ -12,6 +12,6 @@ export const ERC20 = {
   abi: erc20,
 };
 export const ERC20Sender: Contract = {
-  address: "0x3ABa8E9351B394DE8649aE6D8A8caA85A53950B2",
+  address: "0xaD7243c1a5d8F32F843B2d75075E6466d1d23d93",
   abi: erc20ABI,
 };

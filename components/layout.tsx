@@ -111,7 +111,7 @@ export default function Layout({ children }: Props) {
                       <Image
                         className="h-8 w-auto"
                         src="/logo.png"
-                        alt="SHARDS"
+                        alt="XCELS"
                       />
                     </div>
                     <nav className="flex flex-1 flex-col">
@@ -163,10 +163,10 @@ export default function Layout({ children }: Props) {
                 src="/logo.png"
                 width={343}
                 height={304}
-                alt="SHARDS"
+                alt="XCELS"
               />
               <span className="font-medium text-white text-2xl uppercase">
-                Shard App
+                XCEL App
               </span>
             </div>
             <nav className="flex flex-1 flex-col">
