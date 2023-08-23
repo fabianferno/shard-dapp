@@ -1,9 +1,8 @@
 import Layout from "@/components/layout";
 import Head from "next/head";
-import { useRouter } from "next/router";
 import { useState } from "react";
-import * as XLSX from "xlsx";
 import { ERC20Sender, ERC20 } from "../utils";
+import { useContractWrite } from "wagmi";
 import Papa from "papaparse";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
@@ -16,6 +15,17 @@ export default function App() {
 
   //State to store the values
   const [values, setValues] = useState([]);
+
+  const {
+    write: sendERC20,
+    isLoading,
+    isError,
+    isSuccess,
+  } = useContractWrite({
+    address: ERC20Sender.address,
+    abi: ERC20Sender.abi,
+    method: "sendERC20",
+  });
 
   const changeHandler = (event: any) => {
     // Passing file data (event.target.files[0]) to parse using Papa.parse
