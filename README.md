@@ -1,38 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Project Description: Cross-Chain Crypto Bulk Payments App User Guide
 
-## Getting Started
+The Cross-Chain Crypto Bulk Payments App represents an innovative solution designed to simplify and optimize the process of managing and executing bulk cryptocurrency transactions across various blockchain networks. 
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![Screenshot 2023-08-23 214428.png](https://cdn.dorahacks.io/static/files/18a232d52b461a6d484277c4ba58ebd5.png)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![Screenshot 2023-08-23 214403.png](https://cdn.dorahacks.io/static/files/18a232e4de842f1aa20a09b4a238d3c4.png)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![Screenshot 2023-08-23 214350.png](https://cdn.dorahacks.io/static/files/18a232e934d36d7bf6fb58f425b8c764.png)
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+![Screenshot 2023-08-23 214411.png](https://cdn.dorahacks.io/static/files/18a232ec595e4a5ebbc5c574310a2211.png)
+
+
+
+
+App Highlights:
+
+Upload CSV File:
+Simplify the process of initiating bulk transactions with ease. The app offers the following features:
+Include essential transaction details like destination chains, recipient wallet addresses, token types, and amounts via an uploaded CSV file.
+View and Approve Transactions:
+Exercise control over your transactions before finalizing them:
+Preview transaction specifics and approve transactions before they are sent.
+View Sent/Received Payments:
+Gain insights into your transaction history to enhance your oversight:
+Retrieve payment records for any wallet address effortlessly.
+Table of Contents:
+
+1. Uploading CSV File:
+Begin your journey by following these simple steps to upload your CSV file containing vital transaction details:
+
+Connect your Metamask or preferred wallet.
+Access the "Send Payments" section.
+Initiate the process by selecting the "Upload CSV" button.
+Import your transaction details by choosing the relevant CSV file stored on your device. The file should encompass columns dedicated to destination chains, recipient wallet addresses, token types, and the corresponding amounts.
+1. Previewing Transaction Details:
+Prior to confirming your transactions, take advantage of the opportunity to review and validate your bulk payments:
+
+Upon successfully uploading the CSV file, an overview of the transaction specifics will be presented.
+Scrutinize the listed destination chains, recipient wallet addresses, token types, and the respective amounts.
+If necessary, you have the flexibility to make real-time adjustments directly within the preview table.
+1. Executing Bulk Transactions:
+Once content with the accuracy of the transaction details, proceed to execute your bulk transactions:
+
+Activate the "Proceed" or "Execute Transactions" option.
+A transaction summary will be provided for your assessment.
+Validate both the overall amount and the count of transactions set for execution.
+Depending on the involved blockchain networks, processing times may vary. Patience is appreciated during this stage.
+1. Viewing Transaction History:
+Keep tabs on your transaction history for added accountability:
+
+Navigate to the "View Payments" segment.
+A comprehensive list of executed transactions will be accessible.
+Streamline your search by applying filters based on recipient wallet addresses or specific date ranges.
+Each transaction entry encompasses crucial information such as destination chains, recipient wallets, token types, amounts, and transaction statuses (sent or received).
+Tips for a Smooth Experience:
+For optimal utilization of the app's capabilities, consider the following pointers:
+
+Ensure the precise formatting of your CSV file, guaranteeing accuracy in recipient wallet addresses, token types, and corresponding amounts.
+Exercise prudence during the preview stage to mitigate any inadvertent errors.
+Display patience during transaction execution, particularly if multiple blockchain networks are engaged.
+Maintain a proactive approach by regularly monitoring your transaction history.
+
+Transaction from Axelar: https://testnet.axelarscan.io/gmp/0xc905722bd259642f506e41270e98d5adcfb6b20806279c21458b42c1e0dc244d:6
