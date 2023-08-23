@@ -1,21 +1,9 @@
-import Image from "next/image";
 import { useEffect, useState, useRef } from "react";
 import Layout from "@/components/layout";
 import { useContractRead, useAccount } from "wagmi";
 import { ERC20Sender, ERC20 } from "../utils";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-
-const people = [
-  {
-    name: "0x254d06f33bDc5b8ee05b2ea472107E300226659A",
-    title: "10aUSD",
-  },
-  {
-    name: "0x254d06f33bDc5b8ee05b2ea472107E300226659A",
-    title: "10aUSD",
-  },
-];
 
 type Payment = {
   amount: string;
@@ -40,7 +28,7 @@ function PaymentsTable(props: any) {
   });
 
   useEffect(() => {
-    if (recievedPaymentsSuccess) {
+    if (recievedPaymentsSuccess && recievedPayments) {
       let filteredData: any = recievedPayments.filter(
         (payment: any) =>
           payment.sender !== "0x0000000000000000000000000000000000000000"
