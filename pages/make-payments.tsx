@@ -134,7 +134,8 @@ export default function App() {
         <div className="md:flex md:items-center md:justify-between">
           <div className="min-w-0 flex-1">
             <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-              Make bulk payments across multiple chains! - Powered by Axelar
+              Make Payments
+              <div className="text-sm font-normal">Powered by Axelar</div>
             </h2>
           </div>
           <div className="mt-4 flex md:ml-4 md:mt-0">
@@ -149,7 +150,7 @@ export default function App() {
             className="block mb-2 text-sm font-medium bg-white text-gray-900"
             htmlFor="large_size"
           >
-            Large file input
+            Upload CSV File
           </label>
           <input
             name="file"
@@ -160,9 +161,9 @@ export default function App() {
           />
           <button
             onClick={handleSend}
-            className="mt-5 flex btn d-block bg-indigo-600 text-white rounded-lg btn-lg text-dark fw-bold btn-primary p-3"
+            className="mt-5 flex btn d-block bg-lime-600 font-bold text-white rounded-lg btn-lg text-dark fw-bold btn-primary p-3"
           >
-            Send ✅
+            Begin Payments
           </button>
 
           <div className="mt-8 flow-root">

@@ -156,7 +156,7 @@ export default function Layout({ children }: Props) {
         {/* Static sidebar for desktop */}
         <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
           {/* Sidebar component, swap this element with another sidebar if you like */}
-          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-indigo-600 px-6">
+          <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-slate-800 px-6">
             <div className="flex h-16 shrink-0 items-center gap-x-4">
               <Image
                 className="h-8 w-auto"
@@ -179,15 +179,15 @@ export default function Layout({ children }: Props) {
                           href={item.href}
                           className={classNames(
                             router.pathname === item.href
-                              ? "bg-indigo-700 text-white"
-                              : "text-indigo-200 hover:text-white hover:bg-indigo-700",
+                              ? "bg-lime-500 text-black"
+                              : "text-indigo-200 hover:text-white hover:bg-slate-700",
                             "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
                           )}
                         >
                           <item.icon
                             className={classNames(
                               router.pathname === item.href
-                                ? "text-white"
+                                ? "text-black"
                                 : "text-indigo-200 group-hover:text-white",
                               "h-6 w-6 shrink-0"
                             )}
