@@ -24,7 +24,7 @@ export default function App() {
   } = useContractWrite({
     address: ERC20Sender.address,
     abi: ERC20Sender.abi,
-    method: "sendERC20",
+    functionName: "sendERC20",
   });
 
   const changeHandler = (event: any) => {

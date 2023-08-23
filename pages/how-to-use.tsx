@@ -38,13 +38,13 @@ export default function HowToUse() {
     <Layout>
       <div className="md:flex md:items-center md:justify-between">
         <div className="min-w-0 flex-1">
-          <h2 className="ml-6 mt-5 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
+          <h2 className="mt-5 text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
             Welcome to the Shards - User Guide
           </h2>
         </div>
       </div>
 
-      <div className="p-6">
+      <div className="mt-8">
         <p className="text-gray-700 mb-6">
           Thank you for choosing our Cross-Chain Crypto Bulk Payments App! This
           guide will walk you through the step-by-step process of using the app
@@ -53,10 +53,7 @@ export default function HowToUse() {
         </p>
 
         <div className="mt-5 mb-14 lg:border-b lg:border-t lg:border-gray-200">
-          <nav
-            className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
-            aria-label="Progress"
-          >
+          <nav className="max-w-7xl sm:px-6 lg:px-8" aria-label="Progress">
             <ol
               role="list"
               className="overflow-hidden rounded-md lg:flex lg:rounded-none lg:border-l lg:border-r lg:border-gray-200"

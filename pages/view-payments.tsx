@@ -1,45 +1,10 @@
 import Image from "next/image";
-import { useAccount } from "wagmi";
 import { useEffect, useState } from "react";
 import Layout from "@/components/layout";
+import { useContractRead, useAccount } from "wagmi";
+import { ERC20Sender, ERC20 } from "../utils";
 
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-
-const collections = [
-  {
-    nftAddress: 1,
-    pfp: "/mutant-ape.png",
-    name: "",
-    verified_on: "",
-    editionSize: "100",
-    funds_locked: "10 ETH",
-    milestones: "1",
-    date: "Dec 23, 2023",
-    positiveVotes: 9,
-  },
-  {
-    nftAddress: 2,
-    pfp: "",
-    name: "",
-    verified_on: "",
-    editionSize: "100",
-    funds_locked: "10 ETH",
-    milestones: "1",
-    date: "Dec 23, 2023",
-    positiveVotes: 35,
-  },
-  {
-    nftAddress: 3,
-    pfp: "",
-    name: "",
-    verified_on: "",
-    editionSize: "100",
-    funds_locked: "10 ETH",
-    milestones: "1",
-    date: "Dec 23, 2023",
-    positiveVotes: 64,
-  },
-];
 
 const people = [
   {
@@ -54,18 +19,27 @@ export default function ProjectAttestations() {
   const [leaderboard, setLeaderboard] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  enum CredentialType {
-    Orb = "orb",
-    Phone = "phone",
-  }
+  const {
+    data: recievedPayments,
+    isError: recievedPaymentsError,
+    isLoading: recievedPaymentsLoading,
+  } = useContractRead({
+    address: ERC20Sender.address,
+    abi: ERC20Sender.abi,
+    functionName: "getReceivedPayments",
+    args: [address],
+  });
 
-  const handleWorldCoinSuccess = (data: any) => {
-    console.log("WorldCoin Success:", data);
-  };
-
-  const handleVerify = (data: any) => {
-    console.log("WorldCoin Verify:", data);
-  };
+  const {
+    data: sentPayments,
+    isError: sentPaymentsError,
+    isLoading: sentPaymentsLoading,
+  } = useContractRead({
+    address: ERC20Sender.address,
+    abi: ERC20Sender.abi,
+    functionName: "getSentPayments",
+    args: [address],
+  });
 
   return (
     <Layout>
