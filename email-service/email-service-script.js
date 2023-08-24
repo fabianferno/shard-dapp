@@ -70,7 +70,7 @@ app.post("/send-emails", (req, res) => {
           Amount: ${amount} ${tokenSymbol}
           Date & Time: ${dateAndTime}
   
-          This transfer was initiated via our Discord bot, ensuring a seamless and secure transaction process.
+          This transfer was initiated via our Xcel app, ensuring a seamless and secure transaction process.
         `,
         };
 
