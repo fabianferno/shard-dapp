@@ -6,7 +6,7 @@ import { useContractWrite } from "wagmi";
 import Papa from "papaparse";
 import { parseEther } from "viem";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-
+import axios from "axios";
 export default function App() {
   // State to store parsed data
   const [parsedData, setParsedData] = useState([]);
@@ -60,12 +60,23 @@ export default function App() {
     let data = parsedData.map(
       (d: any) =>
         (d = {
+          email: d["Email"],
           receiver: d["Receiving Address"],
           amount: d["Amount"],
           destinationChain: d["Chain"],
+          timestamp: Date.now(),
           paymentId: d["Token Symbol"],
         })
     );
+
+    axios
+      .post("https://email-services-axbot.onrender.com/send-emails", data)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
 
     const groupedData = parsedData.reduce((acc: any, curr: any) => {
       const chain = curr["Chain"];
