@@ -1,4 +1,8 @@
-Project Description: Cross-Chain Crypto Bulk Payments App User Guide
+# Project Description
+Cross-Chain Crypto Bulk Payments App User Guide
+
+# Transaction from Axelar
+https://testnet.axelarscan.io/gmp/0xc905722bd259642f506e41270e98d5adcfb6b20806279c21458b42c1e0dc244d:6
 
 The Cross-Chain Crypto Bulk Payments App represents an innovative solution designed to simplify and optimize the process of managing and executing bulk cryptocurrency transactions across various blockchain networks. 
 
@@ -24,7 +28,7 @@ The Cross-Chain Crypto Bulk Payments App represents an innovative solution desig
 
 
 
-App Highlights:
+# App Highlights:
 
 Upload CSV File:
 Simplify the process of initiating bulk transactions with ease. The app offers the following features:
@@ -72,4 +76,10 @@ Exercise prudence during the preview stage to mitigate any inadvertent errors.
 Display patience during transaction execution, particularly if multiple blockchain networks are engaged.
 Maintain a proactive approach by regularly monitoring your transaction history.
 
-Transaction from Axelar: https://testnet.axelarscan.io/gmp/0xc905722bd259642f506e41270e98d5adcfb6b20806279c21458b42c1e0dc244d:6
+# Two positives 
+1) Example code provided was useful, and very easy to understand
+2) Accessing testnet funds was quick and simple, thanks to axelar discord
+
+# Two negatives
+1) High gas fees for transactions
+2) Axelar seems like a new project, which means there may exist some security issues
