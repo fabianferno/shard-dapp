@@ -75,3 +75,11 @@ Ensure the precise formatting of your CSV file, guaranteeing accuracy in recipie
 Exercise prudence during the preview stage to mitigate any inadvertent errors.
 Display patience during transaction execution, particularly if multiple blockchain networks are engaged.
 Maintain a proactive approach by regularly monitoring your transaction history.
+
+# Two positives 
+1) Example code provided was useful as well, and very easy to understand
+2) Accessing testnet funds was quick and simple, thanks to axelar discord
+
+# Two negatives
+1) High gas fees for transactions
+2) Axelar seems like a new project, which means there may exist some security issues
