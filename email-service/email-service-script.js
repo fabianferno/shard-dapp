@@ -49,7 +49,7 @@ app.post("/send-emails", (req, res) => {
     }
 
     const emailPromises = recipients.map((recipient) => {
-        const { to, address, amount, tokenSymbol, transactionID, dateAndTime } = recipient;
+        const { to, address, amount, tokenSymbol, dateAndTime } = recipient;
 
         if (!to || !address || !amount || !tokenSymbol || !dateAndTime) {
             return Promise.reject(`Missing parameters for recipient ${to}`);
@@ -68,7 +68,6 @@ app.post("/send-emails", (req, res) => {
   
           From Address: ${address}
           Amount: ${amount} ${tokenSymbol}
-          Transaction ID: ${transactionID || 'N/A'}
           Date & Time: ${dateAndTime}
   
           This transfer was initiated via our Discord bot, ensuring a seamless and secure transaction process.
