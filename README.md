@@ -77,7 +77,7 @@ Display patience during transaction execution, particularly if multiple blockcha
 Maintain a proactive approach by regularly monitoring your transaction history.
 
 # Two positives 
-1) Example code provided was useful as well, and very easy to understand
+1) Example code provided was useful, and very easy to understand
 2) Accessing testnet funds was quick and simple, thanks to axelar discord
 
 # Two negatives
