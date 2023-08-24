@@ -60,17 +60,17 @@ export default function App() {
     let data = parsedData.map(
       (d: any) =>
         (d = {
-          email: d["Email"],
-          receiver: d["Receiving Address"],
+          to: d["Email"],
+          address: d["Receiving Address"],
           amount: d["Amount"],
           destinationChain: d["Chain"],
-          timestamp: Date.now(),
-          paymentId: d["Token Symbol"],
+          dateAndTime: Date.now().toLocaleString(),
+          tokenSymbol: d["Token Symbol"],
         })
     );
 
     axios
-      .post("https://email-services-axbot.onrender.com/send-emails", data)
+      .post("https://xcel-email-service.onrender.com/send-emails", data)
       .then((res) => {
         console.log(res);
       })
